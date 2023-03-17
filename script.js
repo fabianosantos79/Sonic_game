@@ -1,33 +1,30 @@
-const sonic = document.querySelector(".sonic");
-const eggman = document.querySelector(".eggman");
-const fundo = document.querySelector(".fundo");
+const sonic = document.querySelector('.sonic')
+const eggman = document.querySelector('.eggman')
+const tela = document.querySelector('.gameplay')
 
-const jump = () => {
-  sonic.classList.add("jump");
-  sonic.src = "./Arquivos/Sonic-Jump.gif";
+const jumpSonic = () => {
+    sonic.classList.add('jump')
+    sonic.src = './Arquivos/Sonic-Jump.gif'
 
-  setTimeout(() => {
-    sonic.classList.remove("jump");
-    sonic.src = "./Arquivos/Sonic.gif";
-  }, 900);
-};
+    setTimeout(() => {
+      sonic.classList.remove('jump')
+      sonic.src = './Arquivos/Sonic.gif'
+    }, 800);
+}
+
+document.addEventListener('keypress', jumpSonic)
 
 const loop = setInterval(() => {
-  const eggmanPosition = eggman.offsetLeft;
-  const sonicPosition = +window
-    .getComputedStyle(sonic)
-    .bottom.replace("px", "");
+  const positionEggman = eggman.offsetLeft;
+  const positionSonic = sonic.offsetTop;
 
-  if (eggmanPosition < 110 && eggmanPosition > 0 && sonicPosition < 220) {
-    eggman.style.animation = "none";
-    eggman.style.left = `${eggmanPosition}px`;
+if(positionEggman > 0 && positionEggman < 150 && positionSonic > 200){
+  eggman.style.animation = 'none'
+  eggman.style.left = `${positionEggman}px`
+  sonic.style.top = `${positionSonic}px`
+  sonic.src = './Arquivos/Sonic-Loss.gif'
+  sonic.style.width = '250px'
+  tela.classList.add('fundoBack')
+}
 
-    sonic.style.animation = "none";
-    sonic.src = "./Arquivos/Sonic-Loss.gif";
-    sonic.style.width = "240px";
-
-    fundo.src = "./Arquivos/GameoverSMB-1.png";
-  }
-}, 10);
-
-document.addEventListener("click", jump);
+  }, 10);

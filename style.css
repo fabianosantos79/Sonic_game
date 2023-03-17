@@ -1,61 +1,67 @@
-* {
-  padding: 0;
+*{
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
-}
-
-.gameplay {
-  width: 80%;
-  height: 520px;
-  border: 2px solid #ccc;
-  margin: 0 auto;
-  position: relative;
   overflow: hidden;
 }
 
-.sonic {
-  bottom: 110px;
+.gameplay{
+  background-image: url('./Arquivos/Fundo.png');
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.fundoBack{
+  background-image: url('./Arquivos/GameoverSMB-1.png');
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.sonic{
+  width: 180px;
   position: absolute;
-  width: 150px;
+  bottom: 150px;
 }
 
-.jump {
-  animation: 1s sonic_animation infinite ease-out;
-}
-
-.eggman {
-  width: 250px;
+.eggman{
+  width: 300px;
   position: absolute;
-  bottom: 110px;
-  right: 0;
-  animation: 2s eggman_animation infinite linear;
+  right: 0px;
+  bottom: 150px;
+  animation-name: eggman-animation;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
-.fundo {
-  width: 100%;
-  height: 100%;
+.jump{
+  animation-name: sonic-animation;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
 }
 
-@keyframes eggman_animation {
-  0% {
-    right: -250px;
+@keyframes eggman-animation{
+  0%{
+    right: -300px;
   }
-  100% {
-    right: 100%;
+  100%{
+    right: 1400px;
   }
 }
 
-@keyframes sonic_animation {
-  0% {
-    bottom: 110px;
+@keyframes sonic-animation{
+  0%{
+    bottom: 150px;
   }
-  25% {
-    bottom: 250px;
+  50%{
+    bottom: 450px;
   }
-  75% {
-    bottom: 250px;
-  }
-  100% {
-    bottom: 110px;
+  100%{
+    bottom: 150px;
   }
 }
+
